@@ -18,7 +18,7 @@ class OrderField(models.PositiveIntegerField):
 				value = last_item.order + 1
 			except ObjectDoesNotExist:
 				value = 0
-			serattr(model_instance, self.attname, value)
+			setattr(model_instance, self.attname, value)
 			return value
 		else:
 			return super().pre_save(model_instance, add)
